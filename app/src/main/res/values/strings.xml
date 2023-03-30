@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Honowa Assistant</string>
     <string name="logo">logo</string>
+    <string name="welcomeTo">Welcome To</string>
+    <string name="powered_by">Powered by Honowa Technologies</string>
 </resources>

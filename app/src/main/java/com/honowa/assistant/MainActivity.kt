@@ -4,13 +4,14 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import android.webkit.WebView
 import android.webkit.WebSettings
 import android.webkit.WebViewClient
 import android.annotation.SuppressLint
+import android.graphics.Bitmap
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.webView
-import kotlinx.android.synthetic.main.activity_main.swipeToRefresh
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private var backPressedTime: Long = 0
@@ -21,9 +22,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val client = object : WebViewClient() {
+            override fun onPageFinished(view: WebView?, url: String?) {
+                loader.hide()
+            }
+        }
+
         // Init web view
-        webView.webViewClient = WebViewClient()
-        webView.scrollBarStyle = View.SCROLLBARS_INSIDE_OVERLAY
+        webView.webViewClient = client
+        //ebView.scrollBarStyle = View.SCROLLBARS_INSIDE_OVERLAY
         // Set web view settings
         val webSettings = webView.settings
         webSettings.useWideViewPort = true
@@ -33,8 +40,6 @@ class MainActivity : AppCompatActivity() {
         webSettings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
         // Load url
         webView.loadUrl("https://assistant.honowa.com/")
-
-        setResult(0, intent);
 
         refreshApp()
     }

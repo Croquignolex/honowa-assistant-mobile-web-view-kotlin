@@ -5,7 +5,7 @@
     android:versionName="1.0.0">
     <!-- Internet permission -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <!-- App -->
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,18 +15,20 @@
         android:theme="@style/AppTheme">
         <!-- Remove top action bar into main activity -->
         <activity
-            android:name=".SplashScreen"
+            android:name=".SplashActivity"
+            android:exported="true"
             android:theme="@style/AppTheme.RemoveActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <!-- Remove top action bar into main activity -->
+        </activity> <!-- Remove top action bar into main activity -->
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.RemoveActionBar">
-        </activity>
+            android:exported="true"
+            android:theme="@style/AppTheme.RemoveActionBar"
+        />
     </application>
+
 </manifest>
