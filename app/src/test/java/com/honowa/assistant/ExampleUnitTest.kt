@@ -1,4 +1,4 @@
-package com.mboacutz.shop
+package com.honowa.assistant
 
 import org.junit.Test
 

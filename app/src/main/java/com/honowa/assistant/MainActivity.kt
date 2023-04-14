@@ -30,14 +30,14 @@ class MainActivity : AppCompatActivity() {
 
         // Init web view
         webView.webViewClient = client
-        //ebView.scrollBarStyle = View.SCROLLBARS_INSIDE_OVERLAY
+        //webView.scrollBarStyle = View.SCROLLBARS_INSIDE_OVERLAY
         // Set web view settings
         val webSettings = webView.settings
         webSettings.useWideViewPort = true
         webSettings.javaScriptEnabled = true
         webSettings.domStorageEnabled = true
         webSettings.safeBrowsingEnabled = true
-        webSettings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
+        webSettings.cacheMode = WebSettings.LOAD_NO_CACHE
         // Load url
         webView.loadUrl("https://assistant.honowa.com/")
 
